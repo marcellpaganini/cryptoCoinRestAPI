@@ -1,5 +1,6 @@
 package ca.burchill.cointracker.network
 
+import ca.burchill.cointracker.database.DatabaseCoin
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -13,7 +14,7 @@ import retrofit2.http.Headers
 
 
 private const val BASE_URL = "https://pro-api.coinmarketcap.com/"
-private const val YOUR_API_KEY = "81c565ce-9f80-4d9a-816f-0e216ca23013"
+private const val YOUR_API_KEY = "03fc15c5-710f-4110-8787-ce5f2e933f0f"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -41,4 +42,6 @@ object CoinApi {
     val retrofitService : CoinApiService by lazy {
         retrofit.create(CoinApiService::class.java)
     }
+
+
 }

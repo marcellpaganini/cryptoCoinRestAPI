@@ -3,6 +3,7 @@ package ca.burchill.cointracker.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import ca.burchill.cointracker.network.CoinApiResponse
 
 
 @Dao
@@ -11,7 +12,7 @@ interface CoinDao {
     fun getCoins(): LiveData<List<DatabaseCoin>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(coins: List<DatabaseCoin>)
+    fun insertAll(coins: CoinApiResponse)
 }
 
 @Database(entities = [DatabaseCoin::class], version = 1, exportSchema = false)
